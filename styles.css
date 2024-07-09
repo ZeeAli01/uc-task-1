@@ -10,15 +10,17 @@ body {
     color: rgb(253, 253, 253);
 }
 
-.heading {
-    font-size: 30px;
-    font-weight: 600;
-    margin: 40px;
-    padding: 5px;
-    text-align: center;
+#heading {
     display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
+    justify-content: center;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+
+    padding: 5px;
+
+
+    margin: 50px;
 }
 
 table,
@@ -29,7 +31,7 @@ td {
 
 .container {
     display: flex;
-    padding: 80px;
+    padding: 20px;
     justify-content: center;
     text-align: center;
 }
@@ -43,21 +45,55 @@ td {
     display: none;
 }
 
+
+/* BUTTON */
+.button-1 {
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+    background-color: #F082AC;
+}
+
+
 .dropdown {
-    border: 1px solid gray;
+
     width: fit-content;
     margin: 20px;
-    padding: 10px;
-    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    margin-left: 45%;
+    border-radius: 14px;
+    height: 50px;
+    border: #000
 }
 
-.dropdown button {
-    font-size: large;
-    padding: 5px;
-    display: inline-flex;
 
 
-}
 
 .dropdown button:hover {
     color: azure;
@@ -67,4 +103,53 @@ td {
 
 a:hover {
     color: #3704ee;
+}
+
+#hide-btn,
+#show-btn {
+    margin-left: 49%;
+}
+
+#table {
+    border-radius: 4px;
+    padding: 8px;
+}
+
+th {
+    padding: 20px;
+}
+
+tr {
+    padding: 10px;
+    margin: 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+#column-name {
+    font-weight: 250;
+    justify-content: center;
+}
+
+h1 span {
+    color: #3704ee;
+    padding-left: 5px;
+
+}
+
+.footer {
+    text-align: center;
+    font-weight: 200;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#heart {
+    color: #b90047
 }

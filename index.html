@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h1 id="heading">Welcome to JavaScript Task 1 <span>Ultra Codes</span></h1>
     <div class="dropdown">
         <select id="select" onchange="handleChange()">
             <option value="none">Select Visibility</option>
@@ -16,12 +17,12 @@
             <option value="hide">HIDE</option>
         </select>
     </div>
-    <button id="hide-btn" class="hidden" onclick="hide()">Hide</button>
-    <button id="show-btn" onclick="show()">Show</button>
+    <button id="hide-btn" class="hidden button-1" onclick="hide()">Hide</button>
+    <button id="show-btn" class="button-1" onclick="show()">Show</button>
     <div class="container">
         <table id="table">
 
-            <tr>
+            <tr id="column-name">
                 <th><input type="checkbox" id="outer-checkbox" onclick="toggle(this)"></th>
                 <th>Title</th>
                 <th>Duration</th>
@@ -34,7 +35,10 @@
         </table>
 
     </div>
-
+    <div class="footer">
+        <hr>
+        <p>Made with <span id="heart">&#10084;</span> by 5066</p>
+    </div>
     <script src="script.js"></script>
 </body>
 
