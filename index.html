@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="dropdown">
+        <select id="select" onchange="handleChange()">
+            <option value="none">Select an option</option>
+            <option value="show">SHOW</option>
+            <option value="hide">HIDE</option>
+        </select>
+    </div>
+    <button id="hide-btn" class="hidden" onclick="hide()">Hide</button>
+    <button id="show-btn" onclick="show()">Show</button>
+    <div class="container">
+        <table id="table">
+
+            <tr>
+                <th><input type="checkbox" id="outer-checkbox" onclick="toggle(this)"></th>
+                <th>Title</th>
+                <th>Duration</th>
+                <th>Link</th>
+            </tr>
+
+            </tr>
+            <!-- rows will be added here! -->
+
+        </table>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
