@@ -49,7 +49,7 @@ function show() {
   }
 }
 document.addEventListener("DOMContentLoaded", (event) => {
-  // Initial behavior
+  // Initial behavior:
   handleChange();
   const checkboxes = document.querySelectorAll(
     'input[type="checkbox"].checkbox'
