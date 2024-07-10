@@ -19,22 +19,58 @@ const rows = [
   },
 ];
 document.addEventListener("DOMContentLoaded", () => {
+  //----------------TASK 2--------------------
+  const form = document.getElementById("modal-form");
+  form.addEventListener("submit", function (event) {
+    if (form.checkValidity()) {
+      event.preventDefault(); // Prevent the default form submission if form is valid
+
+      // Capture the form data:
+      const data = new FormData(form);
+      console.log(data.get("title-input"));
+      console.log(data.get("duration-input"));
+      console.log(data.get("url-input"));
+      //after the validation, add this data into rows:
+      const title = data.get("title-input");
+      const duration = data.get("duration-input");
+      const url = data.get("url-input");
+      let newDuration = 0;
+      if (duration < 60) {
+        newDuration = `${duration} mins`;
+      } else if (duration === 60) {
+        newDuration = `1 hr`;
+      } else {
+        newDuration = `${Math.floor(duration / 60)} hrs ${duration % 60} mins`;
+      }
+
+      //add new row:
+      const row = {
+        topic: title,
+        duration: newDuration,
+        link: url,
+        hidden: false,
+      };
+      rows.push(row);
+      //show updated table rightaway:
+      handleChange();
+
+      // Reset form and close modal
+      form.reset();
+      const modal = document.getElementById("exampleModal");
+      const modalInstance = bootstrap.Modal.getInstance(modal);
+      modalInstance.hide();
+    } else {
+      event.preventDefault();
+      form.reportValidity();
+    }
+  });
+  //----------------TASK 2--------------------
   addRowsToTable(); //initial configuration.
   updateTableState(); //show only [row.hidden=false] either in hide or show mode.
   handleChange(); //show filter shows HIDE btn and vice versa.
   //new:
   //if some outer checkbox change then immediately change all of inner ones:
-  //----------------TASK 2--------------------
-  const form = document.getElementById("modal-form");
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    // Capture the form data:
-    const data = new FormData(form);
-    console.log(data.get("title-input"));
-    console.log(data.get("duration-input"));
-    console.log(data.get("url-input"));
-  });
-  //----------------TASK 2--------------------
+
   document
     .getElementById("outer-checkbox-task1")
     .addEventListener("change", function (event) {
@@ -190,30 +226,3 @@ function updateMasterCheckbox() {
   }
   outerCheckbox.checked = allChecked;
 }
-
-//Task 2:
-
-//create:
-
-// const submitButton = document.getElementById("submit-button");
-// submitButton.addEventListener("click", function (event) {
-//   event.preventDefault();
-//   const form = document.getElementById("modal-form");
-//   const data = new FormData(form);
-//   console.log(data.get("title-input"));
-//   console.log(data.get("duration-input"));
-//   console.log(data.get("url-input"));
-//   document.getElementById("exampleModal").classList.remove("fade");
-// });
-// Handle form submission
-// const submitButton = document.getElementById("submit-button");
-// submitButton.addEventListener("click", function (event) {
-//   event.preventDefault();
-
-//   // Capture the form data
-//   const form = document.getElementById("modal-form");
-//   const data = new FormData(form);
-//   console.log(data.get("title-input"));
-//   console.log(data.get("duration-input"));
-//   console.log(data.get("url-input"));
-// });
