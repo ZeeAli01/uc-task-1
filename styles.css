@@ -6,11 +6,11 @@
 }
 
 body {
-    background: rgb(26, 26, 26);
-    color: rgb(253, 253, 253);
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
-#heading {
+#heading-task1 {
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -23,31 +23,31 @@ body {
     margin: 50px;
 }
 
-table,
+#table-task1,
 th,
 td {
-    border: 1px solid rgb(141, 141, 141);
+    border: 1px solid rgb(0, 0, 0);
 }
 
-.container {
+.heading-task1 {
     display: flex;
     padding: 20px;
     justify-content: center;
     text-align: center;
 }
 
-.link {
-    color: white;
+.link-task1 {
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
 
-.hidden {
+.hidden-task1 {
     display: none;
 }
 
 
 /* BUTTON */
-.button-1 {
+/* .button-1-task1 {
     background-color: #EA4C89;
     border-radius: 8px;
     border-style: none;
@@ -71,31 +71,33 @@ td {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-}
+} */
 
-.button-1:hover,
-.button-1:focus {
+/* .button-1-task1:hover,
+.button-1-task1:focus {
     background-color: #F082AC;
-}
+} */
 
 
-.dropdown {
+.dropdown-task1 {
 
     width: fit-content;
+    text-align: center;
     margin: 20px;
     padding: 20px;
     display: flex;
     justify-content: center;
     margin-left: 45%;
     border-radius: 14px;
-    height: 50px;
-    border: #000
+    height: 90px;
+    border: #000;
+
 }
 
 
 
 
-.dropdown button:hover {
+.dropdown-task1 button:hover {
     color: azure;
     background: #000;
     cursor: pointer;
@@ -105,12 +107,12 @@ a:hover {
     color: #3704ee;
 }
 
-#hide-btn,
-#show-btn {
+#hide-btn-task1,
+#show-btn-task1 {
     margin-left: 49%;
 }
 
-#table {
+#table-task1 {
     border-radius: 4px;
     padding: 8px;
 }
@@ -128,18 +130,18 @@ td {
     padding: 10px;
 }
 
-#column-name {
+#column-name-task1 {
     font-weight: 250;
     justify-content: center;
 }
 
-h1 span {
+/* h1 span {
     color: #3704ee;
     padding-left: 5px;
 
-}
+} */
 
-.footer {
+.footer-task1 {
     text-align: center;
     font-weight: 200;
 
@@ -150,6 +152,22 @@ h1 span {
     padding-top: 5px;
 }
 
-#heart {
+#heart-task1 {
     color: #b90047
+}
+
+#table-task1 {
+    margin-top: 10px;
+    margin-left: 250px;
+    padding: 10px;
+}
+
+.button-1-task1 {
+    background-color: #3704ee;
+    border-radius: 5px;
+    padding: 15px;
+    margin-right: 85px;
+    font-size: medium;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
