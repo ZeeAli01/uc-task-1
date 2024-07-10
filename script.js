@@ -18,22 +18,18 @@ const rows = [
     hidden: false,
   },
 ];
+
 document.addEventListener("DOMContentLoaded", () => {
-  //----------------TASK 2--------------------
   const form = document.getElementById("modal-form");
   form.addEventListener("submit", function (event) {
     if (form.checkValidity()) {
-      event.preventDefault(); // Prevent the default form submission if form is valid
+      event.preventDefault();
 
-      // Capture the form data:
       const data = new FormData(form);
-      console.log(data.get("title-input"));
-      console.log(data.get("duration-input"));
-      console.log(data.get("url-input"));
-      //after the validation, add this data into rows:
       const title = data.get("title-input");
       const duration = data.get("duration-input");
       const url = data.get("url-input");
+
       let newDuration = 0;
       if (duration < 60) {
         newDuration = `${duration} mins`;
@@ -43,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
         newDuration = `${Math.floor(duration / 60)} hrs ${duration % 60} mins`;
       }
 
-      //add new row:
       const row = {
         topic: title,
         duration: newDuration,
@@ -51,10 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
         hidden: false,
       };
       rows.push(row);
-      //show updated table rightaway:
       handleChange();
 
-      // Reset form and close modal
       form.reset();
       const modal = document.getElementById("exampleModal");
       const modalInstance = bootstrap.Modal.getInstance(modal);
@@ -64,12 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
       form.reportValidity();
     }
   });
-  //----------------TASK 2--------------------
-  addRowsToTable(); //initial configuration.
-  updateTableState(); //show only [row.hidden=false] either in hide or show mode.
-  handleChange(); //show filter shows HIDE btn and vice versa.
-  //new:
-  //if some outer checkbox change then immediately change all of inner ones:
+
+  addRowsToTable();
+  updateTableState();
+  handleChange();
 
   document
     .getElementById("outer-checkbox-task1")
@@ -80,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const checkboxes = document.querySelectorAll(
     'input[type="checkbox"].checkbox-task1'
   );
-  //if some inner checkbox changes then immediately change master one:
   for (let i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener("change", updateMasterCheckbox);
   }
@@ -94,6 +84,7 @@ function addRowsToTable() {
           <th>Title</th>
           <th>Duration</th>
           <th>Link</th>
+          <th>Actions</th>
       </tr>
   `;
   table.innerHTML = colHeading;
@@ -105,11 +96,17 @@ function addRowsToTable() {
       <td><input type="checkbox" class="checkbox-task1" value="${i}"></td>
       <td>${rows[i].topic}</td>
       <td>${rows[i].duration}</td>
-      <td><a class="link-task1" href=${rows[i].link} target="_blank">${rows[i].link}</a></td>`;
+      <td><a class="link-task1" href=${rows[i].link} target="_blank">${rows[i].link}</a></td>
+      <td><button class="row-delete-button" onclick="handleRowDelete(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg></button></td>
+      `;
     row.classList.add("task-row-task1");
     table.appendChild(row);
   }
 }
+
 function toggle(source) {
   let checkboxes = document.querySelectorAll(
     'input[type="checkbox"].checkbox-task1'
@@ -120,18 +117,18 @@ function toggle(source) {
 
   updateMasterCheckbox();
 }
-//on click hide button:
+
 function hide() {
   const checkboxes = document.getElementsByClassName("checkbox-task1");
   for (let i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
       const index = checkboxes[i].value;
-      rows[index].hidden = true; //HIDE CHECKED
+      rows[index].hidden = true;
     }
   }
   updateTableState();
 }
-//on click show button:
+
 function show() {
   const checkboxes = document.getElementsByClassName("checkbox-task1");
   for (let i = 0; i < checkboxes.length; i++) {
@@ -142,7 +139,7 @@ function show() {
   }
   updateTableState();
 }
-//show and hide buttons:
+
 function handleChange() {
   const showBtn = document.getElementById("show-btn-task1");
   const hideBtn = document.getElementById("hide-btn-task1");
@@ -160,7 +157,7 @@ function handleChange() {
   }
   updateTableState();
 }
-//print rows based on hidden property:
+
 function updateTableState() {
   const table = document.getElementById("table-task1");
   const select = document.getElementById("select-task1");
@@ -170,6 +167,7 @@ function updateTableState() {
           <th>Title</th>
           <th>Duration</th>
           <th>Link</th>
+          <th>Actions</th>
       </tr>
   `;
   table.innerHTML = colHeading;
@@ -188,6 +186,10 @@ function updateTableState() {
           <td>${row.topic}</td>
           <td>${row.duration}</td>
           <td><a class="link-task1" href="${row.link}" target="_blank">${row.link}</a></td>
+          <td><button class="row-delete-button" onclick="handleRowDelete(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg></button></td>
       `;
       table.appendChild(tr);
     }
@@ -195,7 +197,6 @@ function updateTableState() {
   const checkboxes = document.querySelectorAll(
     'input[type="checkbox"].checkbox-task1'
   );
-  //if some inner checkbox changes then immediately change master one:
   for (let i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener("change", updateMasterCheckbox);
   }
@@ -225,4 +226,11 @@ function updateMasterCheckbox() {
     }
   }
   outerCheckbox.checked = allChecked;
+}
+
+function handleRowDelete(btn) {
+  const rowToDelete = btn.parentElement.parentElement;
+  const rowIndex = rowToDelete.querySelector(".checkbox-task1").value;
+  rows.splice(rowIndex, 1);
+  updateTableState();
 }
