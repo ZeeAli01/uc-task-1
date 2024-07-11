@@ -96,16 +96,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       rows[index] = row;
       handleChange();
-
-      //
       updateForm.reset();
+      const updateCloseBtn = document.getElementById("update-close-btn");
+      updateCloseBtn.addEventListener("click", (event) => {
+        console.log("clicked close button");
+      });
       const modal = document.getElementById("exampleModal2");
       const modalInstance = bootstrap.Modal.getInstance(modal);
       modalInstance.hide();
-      // console.log("row to update has data as follow: ", row);
-      console.log(
-        `AFTER EDIT DATA: title: ${title} , duration: ${newDuration}, link:${url}`
-      );
     } else {
       event.preventDefault();
       updateForm.reportValidity();
@@ -334,7 +332,7 @@ function convertDurationToMinutes(duration) {
   return totalMinutes;
 }
 function handleRowUpdateClick(btn) {
-  console.log("inside handleRowUpdateClick()");
+  //console.log("inside handleRowUpdateClick()");
   const rowToUpdate = btn.parentElement.parentElement.parentElement;
   const rowIndex = rowToUpdate.querySelector(".checkbox-task1").value;
   console.log(rows[rowIndex].duration);
