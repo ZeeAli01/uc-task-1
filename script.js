@@ -209,7 +209,7 @@ function handleChange() {
   const hideBtn = document.getElementById("hide-btn-task1");
   const select = document.getElementById("select-task1");
 
-  if (select.value === "show") {
+  if (select.value === "show" || select.value === "none") {
     hideBtn.classList.remove("hidden-task1");
     showBtn.classList.add("hidden-task1");
   } else if (select.value === "hide") {
@@ -217,7 +217,7 @@ function handleChange() {
     showBtn.classList.remove("hidden-task1");
   } else {
     showBtn.classList.add("hidden-task1");
-    hideBtn.classList.add("hidden-task1");
+    hideBtn.classList.remove("hidden-task1");
   }
   updateTableState();
 }
@@ -238,13 +238,13 @@ function updateTableState() {
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i];
     if (
-      (select.value === "show" && row.hidden) ||
+      ((select.value === "show" || select.value === "none") && row.hidden) ||
       (select.value === "hide" && !row.hidden)
     ) {
       continue;
     } else {
       const tr = document.createElement("tr");
-      tr.classList.add("row-task1");
+      //   tr.classList.add("row-task1");
       tr.innerHTML = `
           <td><input type="checkbox" class="checkbox-task1" value="${i}"></td>
           <td>${row.topic}</td>
