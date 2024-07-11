@@ -163,15 +163,30 @@ td {
 }
 
 .button-1-task1 {
-    background-color: #3704ee;
-    border-radius: 5px;
-    padding: 15px;
+    /* background-color: #393647; */
+    border-radius: 10px;
+    padding: 10px 20px;
     margin-right: 85px;
     font-size: medium;
     cursor: pointer;
     margin-bottom: 10px;
 }
 
+
+
 .row-delete-button {
-    color: firebrick;
+    color: rgb(255, 255, 255);
+    display: flex;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+.row-update-button {
+    display: flex;
+    margin-left: 12px;
+}
+
+.actions-td {
+    /* display: inline; */
+    width: 55px;
 }
