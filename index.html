@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <h1 id="heading-task1">Welcome to Task 2</h1>
+    <h1 id="heading-task1">Welcome to Task 2 <span>Ultra Codes</span></h1>
     <div class="dropdown-task1">
         <select id="select-task1" onchange="handleChange()">
             <option value="none">Select Filter</option>
@@ -22,8 +22,10 @@
             <option value="hide">HIDE</option>
         </select>
     </div>
-    <button id="hide-btn-task1" class="hidden-task1 button-1-task1" onclick="hide()">Hide</button>
-    <button id="show-btn-task1" class="button-1-task1" onclick="show()">Show</button>
+    <div id="hide-show-parent-div">
+        <button id="hide-btn-task1" class="hidden-task1 button-1-task1" onclick="hide()">Hide</button>
+        <button id="show-btn-task1" class="button-1-task1" onclick="show()">Show</button>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

@@ -11,7 +11,7 @@ body {
 }
 
 #heading-task1 {
-    display: flex;
+    /* display: flex;
     justify-content: center;
     padding: 10px;
     font-size: 30px;
@@ -20,7 +20,19 @@ body {
     padding: 5px;
 
 
-    margin: 50px;
+    margin: 50px; */
+    /*  */
+
+
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    padding: 6px;
+    margin: 11px auto;
+}
+
+#heading-task1 span {
+    color: #3704ee;
 }
 
 #table-task1,
@@ -80,20 +92,21 @@ td {
 
 
 .dropdown-task1 {
-
-    width: fit-content;
+    margin: 6px auto;
     text-align: center;
-    margin: 20px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    margin-left: 45%;
-    border-radius: 14px;
-    height: 90px;
-    border: #000;
+    padding: 20px 10px;
 
 }
 
+#select-task1 {
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 40px;
+    padding: 5px;
+    margin: 4px;
+    cursor: pointer;
+    display: inline-block;
+}
 
 
 
@@ -107,9 +120,12 @@ a:hover {
     color: #3704ee;
 }
 
-#hide-btn-task1,
-#show-btn-task1 {
-    margin-left: 49%;
+#hide-show-parent-div {
+
+    margin: 6px auto;
+    text-align: center;
+    justify-content: center;
+    margin-left: 80px;
 }
 
 #table-task1 {
@@ -135,11 +151,7 @@ td {
     justify-content: center;
 }
 
-/* h1 span {
-    color: #3704ee;
-    padding-left: 5px;
 
-} */
 
 .footer-task1 {
     text-align: center;
